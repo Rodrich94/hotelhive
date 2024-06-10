@@ -11,14 +11,14 @@ const onFinishFailed = (errorInfo) => {
 
 const FormContact = () => (
   <Form
-    name="basic"
+    name="form-contac"
     labelCol={{
-      span: 8,
+      span: 24,
     }}
     wrapperCol={{
-      span: 16,
+      span: 24  ,
     }}
-
+    
     initialValues={{
       remember: true,
     }}
@@ -68,7 +68,7 @@ const FormContact = () => (
     <Form.Item
       wrapperCol={{
         offset: 8,
-        span: 16,
+        span: 8,
       }}
     >
       <Button  htmlType="submit">

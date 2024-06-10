@@ -3,6 +3,9 @@ import {
   UserOutlined,
   HomeOutlined,
   CalendarOutlined,
+  EnvironmentOutlined,
+  PhoneOutlined,
+  MailOutlined,
 } from "@ant-design/icons";
 import {
   Breadcrumb,
@@ -146,21 +149,94 @@ const App = () => {
             </Content>
             <Footer
               style={{
+                padding: "5px",
                 textAlign: "center",
                 backgroundColor: "#33757b",
+                justifyContent: "center",
               }}
               id="footer"
             >
               <Row>
-                <Col xs={24} lg={12}>
-                  <h3>Contacto</h3>
-                  <FormContact />
+                <Col xs={24} lg={8}>
+                  <Col xs={24} lg={24}>
+                    <h3 style={{ color: "#f4f1e8" }}>Contacto</h3>
+                  </Col>
+                  <Col xs={24} lg={24}>
+                    <div
+                      style={{
+                        display: "flex",
+                        width: "100%",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <FormContact />
+                    </div>
+                  </Col>
                 </Col>
-                <Col xs={24} lg={12}>
-                  <h3>Donde nos ubicamos</h3>
-                  <iframe src="https://maps.google.com/?cid=8197747569466981434" width="600" height="360" frameborder="0"  allowfullscreen></iframe>
+                <Col
+                  xs={24}
+                  lg={8}
+                  style={{ padding: "16px", textAlign: "center" }}
+                >
+                  <Row gutter={[16, 16]}>
+                    <Col xs={24} style={{ color: "#f4f1e8" }}>
+                      <EnvironmentOutlined
+                        style={{ fontSize: "24px", marginBottom: "8px" }}
+                      />
+                      <h3>Dirección</h3>
+                      <p>Calle Falsa 123, Ciudad, País</p>
+                    </Col>
+                    <Col xs={24} style={{ color: "#f4f1e8" }}>
+                      <PhoneOutlined
+                        style={{ fontSize: "24px", marginBottom: "8px" }}
+                      />
+                      <h3>Teléfono</h3>
+                      <p>(+123) 456 7890</p>
+                    </Col>
+                    <Col xs={24} style={{ color: "#f4f1e8" }}>
+                      <MailOutlined
+                        style={{ fontSize: "24px", marginBottom: "8px" }}
+                      />
+                      <h3>Correo Electrónico</h3>
+                      <p>contacto@hotel.com</p>
+                    </Col>
+                  </Row>
                 </Col>
-                <Col xs={24} lg={24} style={{borderTop:"1px solid", padding:"10px"}}>
+                <Col xs={24} lg={8}>
+                  <Col xs={24} lg={24}>
+                    <h3 style={{ color: "#f4f1e8" }}>Donde nos ubicamos</h3>
+                  </Col>
+                  <Col xs={24} lg={24}>
+                    <div
+                      style={{
+                        display: "flex",
+                        width: "100%",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <iframe
+                        title="San Martín de los Andes"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3200.5792344470085!2d-71.35136578471177!3d-40.157320379396156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x961a93f5b0f0b351%3A0x4bd202dc9e2b2316!2sSan%20Mart%C3%ADn%20de%20los%20Andes%2C%20Neuqu%C3%A9n%2C%20Argentina!5e0!3m2!1sen!2sus!4v1686861637602!5m2!1sen!2sus"
+                        width="100%"
+                        height="300"
+                        style={{ width: "80%" }}
+                        allowFullScreen=""
+                        loading="lazy"
+                      ></iframe>
+                    </div>
+                  </Col>
+                </Col>
+                <Col
+                  xs={24}
+                  lg={24}
+                  style={{
+                    borderTop: "1px solid",
+                    padding: "10px",
+                    marginTop: "5px",
+                    paddingTop: "5px",
+                    color:"#f4f1e8"
+                  }}
+                >
                   Ant Design ©{new Date().getFullYear()} Created by Ant UED
                 </Col>
               </Row>
