@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from "react";
 import {
-  AppstoreOutlined,
   UserOutlined,
-  HeartOutlined,
   HomeOutlined,
   CalendarOutlined,
 } from "@ant-design/icons";
-import { Breadcrumb, Layout, Menu, theme, ConfigProvider, Carousel } from "antd";
+import {
+  Breadcrumb,
+  Layout,
+  Menu,
+  theme,
+  ConfigProvider,
+  FloatButton,
+  Col,
+  Row,
+} from "antd";
 import {
   BrowserRouter as Router,
   Routes,
@@ -14,8 +21,10 @@ import {
   Link,
   useLocation,
 } from "react-router-dom";
-import logo from "./img/Logo.png";
-import Home from './Home/Home';
+import logo from "./img/Hotelhive2.png";
+import Home from "./Home/Home";
+import FormContact from "./Contact/FormContact";
+//import Contact from './Contact/Contact'; // Asegúrate de importar tu componente Contact
 const { Header, Content, Footer } = Layout;
 
 const App = () => {
@@ -41,28 +50,28 @@ const App = () => {
     setSelectedKeys([location.pathname]);
   }, [location.pathname]);
 
-  const [collapsed, setCollapsed] = useState(false);
-  const minWidthToShowName = 150;
-  const width = collapsed ? 150 : 200;
-
   return (
     <ConfigProvider
       theme={{
         token: {
-          colorPrimary: "#b99470",
-          colorInfo: "#b99470",
-          colorSuccess: "#8fb996",
-          colorWarning: "#f2c94c",
-          colorError: "#e57373",
-          colorLink: "#6c83b5",
-          colorTextBase: "#4a4a4a",
+          colorPrimary: "#33757b",
+          colorInfo: "#f4f1e8",
+          colorSuccess: "#78B454",
+          colorWarning: "#F9A52B",
+          colorError: "#D33131",
+          colorLink: "#474747",
+          colorTextBase: "#474747",
+          colorBgBase: "#f4f1e8",
         },
         components: {
           Layout: {
-            headerBg: "rgb(74, 74, 74)",
+            headerBg: "#f4f1e8",
           },
           Menu: {
-            darkItemBg: "rgb(74, 74, 74)",
+            darkItemBg: "#f4f1e8",
+          },
+          Card: {
+            colorFillAlter: "#33757b",
           },
         },
       }}
@@ -79,7 +88,7 @@ const App = () => {
           </Link>
 
           <Menu
-            theme="dark"
+            theme="light"
             mode="horizontal"
             selectedKeys={selectedKeys}
             style={{
@@ -94,55 +103,72 @@ const App = () => {
             <Menu.Item key="/calendar" icon={<CalendarOutlined />}>
               <Link to="/calendar">Calendario</Link>
             </Menu.Item>
+            <Menu.Item key="/contact" icon={<UserOutlined />}>
+              <Link to="/contact">Contacto</Link>
+            </Menu.Item>
           </Menu>
         </Header>
         <Layout>
-           <Routes>
-                <Route path="/perfil" />
-                <Route path="/calendar" />
-                <Route path="/" element={<Home/>} />
-              </Routes>
           <Layout
             style={{
-              padding: "0 24px 24px",
               height: "auto",
               backgroundColor: "rgba(244, 223, 185, 0.8)",
             }}
           >
-            <Breadcrumb style={{ margin: "16px 0" }}>
-              <Breadcrumb.Item>
-                <Link to="/">Inicio</Link>
-              </Breadcrumb.Item>
-              {pathnames.map((value, index) => {
-                const url = `/${pathnames.slice(0, index + 1).join("/")}`;
-                return (
-                  <Breadcrumb.Item key={url}>
-                    <Link to={url}>{value}</Link>
-                  </Breadcrumb.Item>
-                );
-              })}
-            </Breadcrumb>
+            {/* Renderiza Breadcrumb solo si no estás en la página de inicio */}
+            {location.pathname !== "/" && (
+              <Breadcrumb style={{ margin: "16px 0" }}>
+                <Breadcrumb.Item>
+                  <Link to="/">Inicio</Link>
+                </Breadcrumb.Item>
+                {pathnames.map((value, index) => {
+                  const url = `/${pathnames.slice(0, index + 1).join("/")}`;
+                  return (
+                    <Breadcrumb.Item key={url}>
+                      <Link to={url}>{value}</Link>
+                    </Breadcrumb.Item>
+                  );
+                })}
+              </Breadcrumb>
+            )}
             <Content
               style={{
-                padding: 24,
-                margin: 0,
-                minHeight: 280,
                 background: colorBgContainer,
                 borderRadius: borderRadiusLG,
+                margin: "0",
               }}
             >
+              <Routes>
+                <Route path="/contact" />
+                <Route path="/" element={<Home />} />
+                {/* Agrega más rutas según sea necesario */}
+              </Routes>
             </Content>
             <Footer
               style={{
                 textAlign: "center",
-                backgroundColor: "#f4e3c5",
+                backgroundColor: "#33757b",
               }}
+              id="footer"
             >
-              Ant Design ©{new Date().getFullYear()} Created by Ant UED
+              <Row>
+                <Col xs={24} lg={12}>
+                  <h3>Contacto</h3>
+                  <FormContact />
+                </Col>
+                <Col xs={24} lg={12}>
+                  <h3>Donde nos ubicamos</h3>
+                  <iframe src="https://maps.google.com/?cid=8197747569466981434" width="600" height="360" frameborder="0"  allowfullscreen></iframe>
+                </Col>
+                <Col xs={24} lg={24} style={{borderTop:"1px solid", padding:"10px"}}>
+                  Ant Design ©{new Date().getFullYear()} Created by Ant UED
+                </Col>
+              </Row>
             </Footer>
           </Layout>
         </Layout>
       </Layout>
+      <FloatButton.BackTop visibilityHeight={0} type="primary" />
     </ConfigProvider>
   );
 };
