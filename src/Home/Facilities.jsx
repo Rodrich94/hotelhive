@@ -18,7 +18,20 @@ const contentList = {
     <Row style={{ width: "100%" }}>
       <Col xs={24} lg={12} style={{ display: "flex", justifyContent: "center" }}>
         <Image
-          preview={false}
+          
+          preview={{
+            destroyOnClose: true,
+            imageRender: () => (
+              <video
+                muted
+                width="60%"
+                autoPlay
+                controls
+                src="https://videos.pexels.com/video-files/3998263/3998263-hd_1366_720_50fps.mp4"
+              />
+            ),
+            toolbarRender: () => null,
+          }}
           src={indexRelaxImage}
           style={{ borderRadius: '10px', height: "fit-content", width: '100%' }}
         />
@@ -55,7 +68,19 @@ const contentList = {
     <Row style={{ width: "100%" }}>
       <Col xs={24} lg={12} style={{ display: "flex", justifyContent: "center" }}>
         <Image
-          preview={false}
+        preview={{
+          destroyOnClose: true,
+          imageRender: () => (
+            <video
+              muted
+              width="60%"
+              autoPlay
+              controls
+              src="https://videos.pexels.com/video-files/1596861/1596861-hd_1280_720_30fps.mp4"
+            />
+          ),
+          toolbarRender: () => null,
+        }}
           src={gymimg}
           style={{ width: "100%", borderRadius: '10px' }}
         />
@@ -83,7 +108,19 @@ const contentList = {
     <Row style={{ width: "100%" }}>
       <Col xs={24} lg={12} style={{ display: "flex", justifyContent: "center" }}>
         <Image
-          preview={false}
+          preview={{
+            destroyOnClose: true,
+            imageRender: () => (
+              <video
+                muted
+                width="60%"
+                autoPlay
+                controls
+                src="https://videos.pexels.com/video-files/3773487/3773487-hd_1280_720_60fps.mp4"
+              />
+            ),
+            toolbarRender: () => null,
+          }}
           src={estar}
           style={{ width: "100%", borderRadius: '10px' }}
         />
@@ -114,7 +151,19 @@ const contentList = {
     <Row style={{ width: "100%" }}>
       <Col xs={24} lg={12} style={{ display: "flex", justifyContent: "center" }}>
         <Image
-          preview={false}
+          preview={{
+            destroyOnClose: true,
+            imageRender: () => (
+              <video
+                muted
+                width="60%"
+                autoPlay
+                controls
+                src="https://videos.pexels.com/video-files/854128/854128-hd_1280_720_25fps.mp4"
+              />
+            ),
+            toolbarRender: () => null,
+          }}
           src={bar}
           style={{ width: "100%", borderRadius: '10px' }}
         />

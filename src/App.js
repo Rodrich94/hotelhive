@@ -120,7 +120,7 @@ const App = () => {
           >
             {/* Renderiza Breadcrumb solo si no estás en la página de inicio */}
             {location.pathname !== "/" && (
-              <Breadcrumb style={{ margin: "16px 0" }}>
+              <Breadcrumb style={{ margin: "16px 15px" }}>
                 <Breadcrumb.Item>
                   <Link to="/">Inicio</Link>
                 </Breadcrumb.Item>
@@ -149,7 +149,7 @@ const App = () => {
             </Content>
             <Footer
               style={{
-                padding: "5px",
+                padding: "20px",
                 textAlign: "center",
                 backgroundColor: "#33757b",
                 justifyContent: "center",
@@ -175,7 +175,7 @@ const App = () => {
                 </Col>
                 <Col
                   xs={24}
-                  lg={8}
+                  lg={6}
                   style={{ padding: "16px", textAlign: "center" }}
                 >
                   <Row gutter={[16, 16]}>
@@ -202,9 +202,9 @@ const App = () => {
                     </Col>
                   </Row>
                 </Col>
-                <Col xs={24} lg={8}>
+                <Col xs={24} lg={10}>
                   <Col xs={24} lg={24}>
-                    <h3 style={{ color: "#f4f1e8" }}>Donde nos ubicamos</h3>
+                    <h3 style={{ color: "#f4f1e8",margin:"5px" }}>Donde nos ubicamos</h3>
                   </Col>
                   <Col xs={24} lg={24}>
                     <div
@@ -219,7 +219,7 @@ const App = () => {
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3200.5792344470085!2d-71.35136578471177!3d-40.157320379396156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x961a93f5b0f0b351%3A0x4bd202dc9e2b2316!2sSan%20Mart%C3%ADn%20de%20los%20Andes%2C%20Neuqu%C3%A9n%2C%20Argentina!5e0!3m2!1sen!2sus!4v1686861637602!5m2!1sen!2sus"
                         width="100%"
                         height="300"
-                        style={{ width: "80%" }}
+                        style={{ width: "90%", borderRadius:"10px"}}
                         allowFullScreen=""
                         loading="lazy"
                       ></iframe>
@@ -233,8 +233,8 @@ const App = () => {
                     borderTop: "1px solid",
                     padding: "10px",
                     marginTop: "5px",
-                    paddingTop: "5px",
-                    color:"#f4f1e8"
+                    paddingTop: "15px",
+                    color:"#f4f1e8",
                   }}
                 >
                   Ant Design ©{new Date().getFullYear()} Created by Ant UED
@@ -244,7 +244,7 @@ const App = () => {
           </Layout>
         </Layout>
       </Layout>
-      <FloatButton.BackTop visibilityHeight={0} type="primary" />
+      <FloatButton.BackTop visibilityHeight={0} type="primary" style={{border:"1px solid #474747"}}/>
     </ConfigProvider>
   );
 };
