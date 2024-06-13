@@ -1,0 +1,80 @@
+{
+    "ciudades": [
+      {
+        "id": 1,
+        "nombre": "Buenos Aires",
+        "hoteles": [
+          {
+            "id": 1,
+            "nombre": "Hotel Buenos Aires Centro",
+            "direccion": "Av. Principal 123",
+            "descripcion": "Un hotel cómodo y moderno en el centro de Buenos Aires.",
+            "imagen": "hotel_buenos_aires.jpg",
+            "habitaciones": [
+              {
+                "id": 1,
+                "tipo": "Doble",
+                "precio": 150,
+                "disponibilidad": true
+              },
+              {
+                "id": 2,
+                "tipo": "Suite",
+                "precio": 250,
+                "disponibilidad": true
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "nombre": "Hotel Buenos Aires Sur",
+            "direccion": "Calle Principal 456",
+            "descripcion": "Un hotel cerca de la costa sur de Buenos Aires.",
+            "imagen": "hotel_buenos_aires_sur.jpg",
+            "habitaciones": [
+              {
+                "id": 3,
+                "tipo": "Individual",
+                "precio": 100,
+                "disponibilidad": true
+              },
+              {
+                "id": 4,
+                "tipo": "Doble",
+                "precio": 180,
+                "disponibilidad": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "nombre": "Bariloche",
+        "hoteles": [
+          {
+            "id": 3,
+            "nombre": "Hotel Bariloche Centro",
+            "direccion": "Av. Principal 789",
+            "descripcion": "Un hotel moderno en el centro de Bariloche con vistas al lago.",
+            "imagen": "hotel_bariloche.jpg",
+            "habitaciones": [
+              {
+                "id": 5,
+                "tipo": "Doble con vista al lago",
+                "precio": 200,
+                "disponibilidad": true
+              },
+              {
+                "id": 6,
+                "tipo": "Suite de lujo",
+                "precio": 350,
+                "disponibilidad": true
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  
