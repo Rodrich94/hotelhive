@@ -16,8 +16,6 @@ import estar from "../img/sala-estar2.jpg";
 import patio from "../img/patio.jpg";
 const { Meta } = Card;
 
-const iconStyle = { fontSize: "24px", color: "#ffd700" };
-
 const Home = () => {
   const contentHome = {
     display: "flex",
@@ -225,7 +223,7 @@ const Home = () => {
         <Col xs={24} sm={24} md={24} lg={14} style={{ padding: "0" }}>
           <h1 style={{ margin: "2%" }}>¿Quienes somos? Conócenos</h1>
           <Col xs={24} sm={24} md={20} lg={20}>
-            <Card hoverable>
+            <Card>
               <Meta
                 title="HotelHive"
                 style={{ fontSize: "100%" }}

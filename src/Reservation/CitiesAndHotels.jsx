@@ -6,7 +6,7 @@ import data from '../Data/Reservas.json'; // Importa el JSON de datos
 
 const CitiesAndHotels = () => {
   return (
-    <div style={{ padding: '20px' }}>
+    <div style={{ padding: '20px'}}>
       {data.ciudades.map(ciudad => (
         <div key={ciudad.id}>
           <h2>{ciudad.nombre}</h2>

@@ -6,6 +6,10 @@ import logo from "../img/Hotelhive.png";
 import styles from "../styles/CarouselComponent.module.css";
 
 const CarouselComponent = () => {
+
+  const scrollIntoView = () => {
+    document.getElementById('cont-nos').scrollIntoView({ behavior: 'smooth' });
+  };
   return (
     <Carousel arrows>
       <div>
@@ -25,7 +29,6 @@ const CarouselComponent = () => {
                     src={logo}
                     alt="logo-hotel"
                     preview={false}
-                    
                   />
                   <Col xs={0} sm={0} md={0} lg={9} xl={9}>
                     <h1 style={{ color: "#f4f1e8", fontSize: "100px" }}>
@@ -34,7 +37,7 @@ const CarouselComponent = () => {
                   </Col>
                 </div>
                 <Col xs={24} sm={24} md={24} lg={24} xl={24}>
-                  <p className={styles.typewriterText}>
+                  <div className={styles.typewriterText}>
                     <Typewriter
                       options={{
                         strings: [
@@ -52,13 +55,9 @@ const CarouselComponent = () => {
                       type="primary"
                       shape="circle"
                       icon={<DownOutlined />}
-                      onClick={() =>
-                        document
-                          .getElementById("cont-nos")
-                          .scrollIntoView({ behavior: "smooth" })
-                      }
+                      onClick={scrollIntoView}
                     />
-                  </p>
+                  </div>
                 </Col>
               </div>
             </div>

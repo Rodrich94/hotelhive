@@ -1,10 +1,10 @@
-// HotelDetails.jsx
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { Row, Col, Card, Button } from 'antd';
 import data from '../Data/Reservas.json';
+
 const HotelDetails = () => {
-  const { hotelId } = useParams();
+  const { ciudad, hotelId } = useParams();
   const hotel = data.ciudades.reduce((acc, ciudad) => acc.concat(ciudad.hoteles), [])
     .find(hotel => hotel.id === parseInt(hotelId));
 
@@ -21,7 +21,9 @@ const HotelDetails = () => {
               <h3>{habitacion.tipo}</h3>
               <p>Precio: ${habitacion.precio}</p>
               {habitacion.disponibilidad ? (
-                <Button type="primary">Seleccionar Habitación</Button>
+                <Link to={`/reservas/${encodeURIComponent(ciudad)}/${hotelId}/habitacion/${habitacion.id}`}>
+                  <Button type="primary">Seleccionar Habitación</Button>
+                </Link>
               ) : (
                 <p>No disponible</p>
               )}

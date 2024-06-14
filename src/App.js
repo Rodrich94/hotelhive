@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./styles/App.css";
 import {
   UserOutlined,
   HomeOutlined,
@@ -27,11 +28,11 @@ import {
 import logo from "./img/Hotelhive2.png";
 import Home from "./Home/Home";
 import FormContact from "./Contact/FormContact";
-import CitiesAndHotels from '../src/Reservation/CitiesAndHotels';
-import HotelDetails from '../src/Reservation/HotelDetails';
-import ReservationForm from '../src/Reservation/ReservationForm';
+import CitiesAndHotels from "../src/Reservation/CitiesAndHotels";
+import HotelDetails from "../src/Reservation/HotelDetails";
+import ReservationForm from "../src/Reservation/ReservationForm";
 
-import { Link as ScrollLink } from 'react-scroll';
+import { Link as ScrollLink } from "react-scroll";
 
 const { Header, Content, Footer } = Layout;
 
@@ -50,6 +51,22 @@ const App = () => {
   useEffect(() => {
     setSelectedKeys([location.pathname]);
   }, [location.pathname]);
+  
+
+  const breadcrumbItems = [
+    {
+      key: "home",
+      content: <Link to="/">Inicio</Link>,
+    },
+    ...pathnames.map((value, index) => ({
+      key: `${index}`,
+      content: (
+        <Link to={`/${pathnames.slice(0, index + 1).join("/")}`}>
+          {decodeURIComponent(value)}
+        </Link>
+      ),
+    })),
+  ];
 
   return (
     <ConfigProvider
@@ -82,24 +99,17 @@ const App = () => {
     >
       <Layout>
         <Header
-          style={{
-            display: "flex",
-            alignItems: "center",
-          }}
+          className="header"
         >
           <Link to="/">
-            <img src={logo} height={100} alt="Logo" style={{ marginTop: 25 }} />
+            <img src={logo} height={100} alt="Logo"/>
           </Link>
 
           <Menu
             theme="light"
             mode="horizontal"
             selectedKeys={selectedKeys}
-            style={{
-              marginLeft: "10px",
-              flex: 1,
-              minWidth: 0,
-            }}
+            className="menu"
           >
             <Menu.Item key="/" icon={<HomeOutlined />}>
               <Link to="/">Inicio</Link>
@@ -108,58 +118,49 @@ const App = () => {
               <Link to="/reservas">Reservas</Link>
             </Menu.Item>
             <Menu.Item key="/contact" icon={<UserOutlined />}>
-            <ScrollLink to="footer" smooth={true} duration={500}>
-              Contacto
-            </ScrollLink>
+              <ScrollLink to="footer" smooth={true} duration={500}>
+                Contacto
+              </ScrollLink>
             </Menu.Item>
           </Menu>
         </Header>
         <Layout>
           <Layout
-            style={{
-              height: "auto",
-              backgroundColor: "rgba(244, 223, 185, 0.8)",
-            }}
+            className="layout-principal"
           >
-            {/* Renderiza Breadcrumb solo si no estás en la página de inicio */}
             {location.pathname !== "/" && (
-              <Breadcrumb style={{ margin: "16px 15px" }}>
-                <Breadcrumb.Item>
-                  <Link to="/">Inicio</Link>
-                </Breadcrumb.Item>
-                {pathnames.map((value, index) => {
-                  const url = `/${pathnames.slice(0, index + 1).join("/")}`;
-                  return (
-                    <Breadcrumb.Item key={url}>
-                      <Link to={url}>{value}</Link>
-                    </Breadcrumb.Item>
-                  );
-                })}
+              <Breadcrumb className="breadcrumb">
+                {breadcrumbItems.map((item) => (
+                  <Breadcrumb.Item key={item.key}>
+                    {item.content}
+                  </Breadcrumb.Item>
+                ))}
               </Breadcrumb>
             )}
             <Content
               style={{
                 background: colorBgContainer,
                 borderRadius: borderRadiusLG,
-                margin: "0",
+                margin: location.pathname === "/" ? "0" : "1em",
               }}
             >
               <Routes>
                 <Route path="/contact" />
+                <Route path="/" element={<Home />} />
                 <Route path="/reservas" element={<CitiesAndHotels />} />
-              <Route path="/reservas/:ciudad/:hotelId" element={<HotelDetails />} />
-              <Route path="/reservas/:ciudad/:hotelId/:habitacionId" element={<ReservationForm />} />
-              <Route path="/" element={<Home />} />
-                
+                <Route
+                  path="/reservas/:ciudad/:hotelId"
+                  element={<HotelDetails />}
+                />
+                <Route
+                  path="/reservas/:ciudad/:hotelId/habitacion/:habitacionId"
+                  element={<ReservationForm />}
+                />
               </Routes>
             </Content>
             <Footer
-              style={{
-                padding: "20px",
-                textAlign: "center",
-                backgroundColor: "#33757b",
-                justifyContent: "center",
-              }}
+              className="footer"
+              
               id="footer"
             >
               <Row>
@@ -182,7 +183,7 @@ const App = () => {
                 <Col
                   xs={24}
                   lg={6}
-                  style={{ padding: "16px", textAlign: "center" }}
+                  className="contact-text"
                 >
                   <Row gutter={[16, 16]}>
                     <Col xs={24} style={{ color: "#f4f1e8" }}>
@@ -234,18 +235,11 @@ const App = () => {
                     </div>
                   </Col>
                 </Col>
-                <Col
+                <Col className="text-footer"
                   xs={24}
                   lg={24}
-                  style={{
-                    borderTop: "1px solid",
-                    padding: "10px",
-                    marginTop: "5px",
-                    paddingTop: "15px",
-                    color: "#f4f1e8",
-                  }}
                 >
-                  Ant Design ©{new Date().getFullYear()} Created by Ant UED
+                  HOTEL HIVE ©{new Date().getFullYear()} Created by Team Codo a Codo
                 </Col>
               </Row>
             </Footer>

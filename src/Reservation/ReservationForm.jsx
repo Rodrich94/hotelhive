@@ -1,23 +1,44 @@
-// ReservationForm.jsx
-import React from 'react';
-import { Form, DatePicker, Button } from 'antd';
+import { useParams } from 'react-router-dom';
+import { Form, Input, Button, DatePicker } from 'antd';
 
 const ReservationForm = () => {
-  const handleFinish = (values) => {
-    console.log('Form values:', values);
-    // Lógica para enviar la reserva al backend
+  const { ciudad, hotelId, habitacionId } = useParams();
+  const [form] = Form.useForm();
+
+  const onFinish = (values) => {
+    const reservationDetails = {
+      ciudad: decodeURIComponent(ciudad),
+      hotelId,
+      habitacionId,
+      fecha: values.fecha.format('YYYY-MM-DD'),
+    };
+    console.log('Reservation Details:', reservationDetails);
+    // Llamar a tu API o realizar acciones con los datos de la reserva aquí
   };
 
   return (
-    <div style={{ padding: '20px', maxWidth: '600px', margin: 'auto' }}>
-      <h2>Reserva de Habitación</h2>
-      <Form layout="vertical" onFinish={handleFinish}>
-        <Form.Item name="fecha" label="Fecha de Reserva" rules={[{ required: true, message: 'Selecciona una fecha!' }]}>
-          <DatePicker style={{ width: '100%' }} />
+    <div style={{ padding: '20px' }}>
+      <h1>Formulario de Reserva</h1>
+      <Form form={form} onFinish={onFinish} layout="vertical">
+        <Form.Item label="Ciudad">
+          <Input value={decodeURIComponent(ciudad)} disabled />
+        </Form.Item>
+        <Form.Item label="Hotel ID">
+          <Input value={hotelId} disabled />
+        </Form.Item>
+        <Form.Item label="Habitación ID">
+          <Input value={habitacionId} disabled />
+        </Form.Item>
+        <Form.Item
+          name="fecha"
+          label="Fecha de Reserva"
+          rules={[{ required: true, message: 'Por favor selecciona una fecha' }]}
+        >
+          <DatePicker />
         </Form.Item>
         <Form.Item>
           <Button type="primary" htmlType="submit">
-            Confirmar Reserva
+            Reservar
           </Button>
         </Form.Item>
       </Form>

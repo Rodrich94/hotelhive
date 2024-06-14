@@ -9,7 +9,7 @@
             "nombre": "Hotel Buenos Aires Centro",
             "direccion": "Av. Principal 123",
             "descripcion": "Un hotel cómodo y moderno en el centro de Buenos Aires.",
-            "imagen": "hotel_buenos_aires.jpg",
+            "imagen": "https://img.freepik.com/fotos-premium/imagen-fondo_910766-187.jpg",
             "habitaciones": [
               {
                 "id": 1,
