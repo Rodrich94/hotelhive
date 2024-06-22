@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { Form, Input, Button, DatePicker } from 'antd';
+import { Form, Input, Button, DatePicker, Row } from 'antd';
 
 const ReservationForm = () => {
   const { ciudad, hotelId, habitacionId } = useParams();
@@ -17,9 +17,9 @@ const ReservationForm = () => {
   };
 
   return (
-    <div style={{ padding: '20px' }}>
-      <h1>Formulario de Reserva</h1>
-      <Form form={form} onFinish={onFinish} layout="vertical">
+    <Row style={{ padding: '20px', justifyContent:"center"}}>
+      <h1 style={{width:"100%", textAlign:"center"}}>Formulario de Reserva</h1>
+      <Form style={{width:"60%"}} form={form} onFinish={onFinish} layout="vertical">
         <Form.Item label="Ciudad">
           <Input value={decodeURIComponent(ciudad)} disabled />
         </Form.Item>
@@ -37,12 +37,12 @@ const ReservationForm = () => {
           <DatePicker />
         </Form.Item>
         <Form.Item>
-          <Button type="primary" htmlType="submit">
+          <Button style={{width:"100%"}} type="primary" htmlType="submit">
             Reservar
           </Button>
         </Form.Item>
       </Form>
-    </div>
+    </Row>
   );
 };
 

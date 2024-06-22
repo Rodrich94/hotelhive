@@ -9,7 +9,7 @@
             "nombre": "Hotel Buenos Aires Centro",
             "direccion": "Av. Principal 123",
             "descripcion": "Un hotel cómodo y moderno en el centro de Buenos Aires.",
-            "imagen": "https://img.freepik.com/fotos-premium/imagen-fondo_910766-187.jpg",
+            "imagen": "https://images.pexels.com/photos/323311/pexels-photo-323311.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
             "habitaciones": [
               {
                 "id": 1,
@@ -30,7 +30,7 @@
             "nombre": "Hotel Buenos Aires Sur",
             "direccion": "Calle Principal 456",
             "descripcion": "Un hotel cerca de la costa sur de Buenos Aires.",
-            "imagen": "hotel_buenos_aires_sur.jpg",
+            "imagen": "https://images.pexels.com/photos/4947281/pexels-photo-4947281.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
             "habitaciones": [
               {
                 "id": 3,
@@ -57,7 +57,28 @@
             "nombre": "Hotel Bariloche Centro",
             "direccion": "Av. Principal 789",
             "descripcion": "Un hotel moderno en el centro de Bariloche con vistas al lago.",
-            "imagen": "hotel_bariloche.jpg",
+            "imagen": "https://images.pexels.com/photos/452726/pexels-photo-452726.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            "habitaciones": [
+              {
+                "id": 5,
+                "tipo": "Doble con vista al lago",
+                "precio": 200,
+                "disponibilidad": true
+              },
+              {
+                "id": 6,
+                "tipo": "Suite de lujo",
+                "precio": 350,
+                "disponibilidad": true
+              }
+            ]
+          },
+          {
+            "id": 4,
+            "nombre": "Hotel Bariloche Ladera",
+            "direccion": "Av. Principal 123",
+            "descripcion": "Un hotel moderno en la ladera del cerro Otto de Bariloche con vistas al lago.",
+            "imagen": "https://images.pexels.com/photos/20312005/pexels-photo-20312005/free-photo-of-resfriado-frio-nieve-nevar.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
             "habitaciones": [
               {
                 "id": 5,

@@ -48,16 +48,13 @@ const contentList = {
           </p>
           <ul>
             <li>
-              <strong>Masajes Terapéuticos:</strong> Desde masajes suecos y de tejido profundo hasta técnicas de aromaterapia, nuestros terapeutas profesionales personalizarán su tratamiento para satisfacer sus necesidades específicas.
+              <strong>Masajes Terapéuticos:</strong> Nuestros terapeutas profesionales personalizarán su tratamiento para satisfacer sus necesidades específicas.
             </li>
             <li>
               <strong>Tratamientos Faciales:</strong> Ofrecemos una selección de faciales rejuvenecedores que utilizan los productos más avanzados para limpiar, hidratar y revitalizar su piel.
             </li>
             <li>
               <strong>Terapias de Cuerpo Completo:</strong> Disfrute de envolturas corporales desintoxicantes, exfoliaciones y tratamientos de barro que dejarán su piel suave y revitalizada.
-            </li>
-            <li>
-              <strong>Baños de Hidroterapia:</strong> Relájese en nuestras bañeras de hidromasaje y baños minerales, diseñados para aliviar el estrés y mejorar la circulación.
             </li>
           </ul>
         </div>
@@ -95,10 +92,9 @@ const contentList = {
           Nuestro gimnasio está equipado con una amplia variedad de equipos de última generación, diseñados para satisfacer todas sus necesidades de fitness:
         </p>
         <ul>
-          <li><strong>Máquinas de Cardio:</strong> Cintas de correr, bicicletas estáticas, elípticas y máquinas de remo.</li>
+          <li><strong>Máquinas de Cardio:</strong> Cintas de correr, bicicletas estáticas y máquinas de remo.</li>
           <li><strong>Pesas Libres:</strong> Mancuernas, barras y bancos para ejercicios de fuerza.</li>
           <li><strong>Máquinas de Peso:</strong> Equipos para trabajar diferentes grupos musculares.</li>
-          <li><strong>Área de Estiramiento:</strong> Espacio dedicado con colchonetas y accesorios para estiramientos y ejercicios de suelo.</li>
           <li><strong>Zona de Entrenamiento Funcional:</strong> Con kettlebells, balones medicinales, cuerdas de batalla y más.</li>
         </ul>
       </Col>
@@ -132,14 +128,13 @@ const contentList = {
         </p>
         <h2>Ambiente Acogedor y Elegante</h2>
         <p>
-          Nuestra Sala de Estar ha sido cuidadosamente decorada para crear un ambiente cálido y acogedor, con una combinación de diseño moderno y toques clásicos que invitan a relajarse.
+          Nuestra Sala de Estar ha sido cuidadosamente decorada para crear un ambiente cálido y acogedor, con una combinación de diseño moderno y toques clásicos.
         </p>
         <h2>Servicios y Comodidades</h2>
         <p>
           Para asegurarnos de que su tiempo en la Sala de Estar sea lo más agradable posible, hemos equipado el espacio con una serie de comodidades:
         </p>
         <ul>
-          <li><strong>Wi-Fi Gratuito:</strong> Manténgase conectado con acceso a Internet de alta velocidad.</li>
           <li><strong>Chimenea:</strong> En los meses más fríos, nuestra chimenea añade un toque extra de calidez y confort.</li>
           <li><strong>Biblioteca:</strong> Acceda a una colección de libros y revistas para su entretenimiento.</li>
           <li><strong>Televisión de Pantalla Grande:</strong> Relájese viendo sus programas y películas favoritas en nuestra televisión de alta definición.</li>
