@@ -22,6 +22,7 @@ const CitiesAndHotels = () => {
                       <Button type="primary">Reservar en este hotel</Button>
                     </Link>
                   ]}
+                  style={{minHeight:"500px"}}
                 >
                   <Card.Meta title={hotel.nombre} description={hotel.descripcion} />
                 </Card>

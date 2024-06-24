@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Row, Col, Card, Button } from 'antd';
+import { Row, Col, Card, Button,Typography} from 'antd';
 import data from '../Data/Reservas.json';
 
 const HotelDetails = () => {
@@ -12,12 +12,19 @@ const HotelDetails = () => {
 
   return (
     <div style={{ padding: '20px' }}>
-      <h1>{hotel.nombre}</h1>
-      <p>{hotel.descripcion}</p>
+      <Typography.Title level={2} style={{ fontSize: "30px",margin:"5px" }}>
+        {hotel.nombre}<hr></hr>
+      </Typography.Title>
+      <Typography.Paragraph
+              style={{ fontSize: "18px", textAlign: "left" }}
+            >
+        {hotel.descripcion}
+      </Typography.Paragraph>
       <Row gutter={[16, 16]}>
         {hotel.habitaciones.map(habitacion => (
           <Col key={habitacion.id} xs={24} sm={12} md={8} lg={6}>
-            <Card>
+            <Card cover={<img alt={habitacion.nombre} src={habitacion.imagen} />} 
+            style={{minHeight:"500px"}}>
               <h3>{habitacion.tipo}</h3>
               <p>Precio: ${habitacion.precio}</p>
               {habitacion.disponibilidad ? (
