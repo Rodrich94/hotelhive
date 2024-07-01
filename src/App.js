@@ -31,6 +31,7 @@ import FormContact from "./Contact/FormContact";
 import CitiesAndHotels from "../src/Reservation/CitiesAndHotels";
 import HotelDetails from "../src/Reservation/HotelDetails";
 import ReservationForm from "../src/Reservation/ReservationForm";
+import ReservationsByDNI from "../src/Reservation/ReservationsByDni";
 
 import { Link as ScrollLink } from "react-scroll";
 
@@ -122,6 +123,9 @@ const App = () => {
                 Contacto
               </ScrollLink>
             </Menu.Item>
+            <Menu.Item key="/reservas/dni/38081094" icon={<CalendarOutlined />}>
+              <Link to="/reservas/dni/38081094">Mis Reservas</Link>
+            </Menu.Item>
           </Menu>
         </Header>
         <Layout>
@@ -156,6 +160,7 @@ const App = () => {
                   path="/reservas/:ciudad/:hotelId/habitacion/:habitacionId"
                   element={<ReservationForm />}
                 />
+                <Route path="/reservas/dni/:dni" element={<ReservationsByDNI />} />
               </Routes>
             </Content>
             <Footer

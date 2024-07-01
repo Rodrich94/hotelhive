@@ -1,30 +1,53 @@
-// CitiesAndHotels.jsx
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Row, Col, Card, Button, Typography } from 'antd';
 import { Link } from 'react-router-dom';
-import data from '../Data/Reservas.json'; // Importa el JSON de datos
+import axios from '../axiosConfig';
 
 const CitiesAndHotels = () => {
+  const [cities, setCities] = useState([]);
+
+  useEffect(() => {
+    const fetchCities = async () => {
+      try {
+        const response = await axios.get('/api/cities/');
+        const citiesArray = response.data.map(city => ({
+          id: city.id_city,
+          nombre: city.name,
+          hoteles: city.hotels || []  // Asegúrate de que hoteles sea un arreglo o un arreglo vacío si es undefined
+        }));
+        setCities(citiesArray);
+      } catch (error) {
+        console.error('Error fetching cities:', error);
+      }
+    };
+
+    fetchCities();
+  }, []);
+
+  if (cities.length === 0) {
+    return <div>Cargando ciudades...</div>;
+  }
+
   return (
-    <div style={{ padding: '20px', textAlign:"center"}}>
-      {data.ciudades.map(ciudad => (
+    <div style={{ padding: '20px', textAlign: "center" }}>
+      {cities.map(ciudad => (
         <div key={ciudad.id}>
-          <Typography.Title level={2} style={{ fontSize: "30px",margin:"20px" }}>
+          <Typography.Title level={2} style={{ fontSize: "30px", margin: "20px" }}>
             {ciudad.nombre}<hr></hr>
           </Typography.Title>
-          <Row gutter={[16, 16]} style={{justifyContent:"center"}}>
+          <Row gutter={[16, 16]} style={{ justifyContent: "center" }}>
             {ciudad.hoteles.map(hotel => (
-              <Col key={hotel.id} xs={24} sm={12} md={8} lg={6}>
+              <Col key={hotel.id_hotel} xs={24} sm={12} md={8} lg={6}>
                 <Card
-                  cover={<img alt={hotel.nombre} src={hotel.imagen} />}
+                  cover={<img alt={hotel.name} src={hotel.image} />}
                   actions={[
-                    <Link to={`/reservas/${ciudad.nombre}/${hotel.id}`}>
+                    <Link to={`/reservas/${ciudad.nombre}/${hotel.id_hotel}`}>
                       <Button type="primary">Reservar en este hotel</Button>
                     </Link>
                   ]}
-                  style={{minHeight:"500px"}}
+                  style={{ minHeight: "500px" }}
                 >
-                  <Card.Meta title={hotel.nombre} description={hotel.descripcion} />
+                  <Card.Meta title={hotel.name} description={hotel.description} />
                 </Card>
               </Col>
             ))}
